@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Inventaire sauces Fresh &amp; Saucy</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1EC;--card:#FFFFFF;--ink:#1F1A16;--muted:#6E655D;--line:#E4DDD3;--field:#FFF7DA;--red:#D8432E;--wa:#1FA855;--wad:#178A45;
+ color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15120F;--card:#211C18;--ink:#F3EEE8;--muted:#B0A69C;--line:#3A322B;--field:#2E2A1B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#15120F;--card:#211C18;--ink:#F3EEE8;--muted:#B0A69C;--line:#3A322B;--field:#2E2A1B;color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.4 Figtree,system-ui,-apple-system,"Segoe UI",sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.w{max-width:760px;margin:0 auto;padding:22px 14px 120px}
+.logos{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px 14px;margin-bottom:16px}
+.logos img{display:block;height:auto}
+.lg-ir{width:min(160px,44%)}
+.lg-fs{width:min(96px,28%)}
+h1{font:800 34px/1 "Bricolage Grotesque",Figtree,sans-serif;margin:0}
+h1 span{color:var(--red)}
+.sub{color:var(--muted);margin:6px 0 16px;font-size:17px}
+.who{display:grid;grid-template-columns:1fr 1fr;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px}
+.who label{font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.who input{font:inherit;font-size:18px;border:2px solid var(--line);border-radius:10px;padding:9px 10px;background:var(--bg);color:var(--ink)}
+.help{font-size:15px;color:var(--muted);margin:12px 2px}
+.help b{color:var(--ink)}
+details.cat{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:10px 0;overflow:hidden}
+details.cat summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:14px;font:800 22px "Bricolage Grotesque",sans-serif}
+details.cat summary::-webkit-details-marker{display:none}
+.dot{width:14px;height:14px;border-radius:5px;background:var(--fc);flex:none}
+.prog{margin-left:auto;font:700 14px Figtree,sans-serif;color:var(--muted);background:var(--bg);border-radius:99px;padding:4px 10px;white-space:nowrap}
+.prog.full{background:var(--wa);color:#fff}
+details.cat summary::after{content:"▾";color:var(--muted);font-size:18px}
+details.cat[open] summary::after{content:"▴"}
+.cond{font-size:14px;color:var(--muted);padding:0 14px 10px}
+.it{border-top:1px solid var(--line);padding:12px 14px}
+.it.done{background:color-mix(in srgb,var(--wa) 8%,var(--card))}
+.hd{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px}
+.hd b{font-size:19px}
+.hd small{color:var(--muted);font-size:13px}
+.hd .tot{font:800 20px "Bricolage Grotesque",sans-serif;white-space:nowrap}
+.hd .tot.z{color:var(--muted);font-weight:600;font-size:15px}
+.f{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.f label{display:flex;flex-direction:column;gap:3px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;text-align:center}
+.f input{font:800 24px "Bricolage Grotesque",sans-serif;width:100%;height:50px;text-align:center;border:2px solid var(--line);border-radius:12px;background:var(--field);color:var(--ink);padding:0}
+.f input:disabled{opacity:.3}
+input:focus,button:focus-visible,summary:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.send{position:fixed;left:0;right:0;bottom:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px))}
+.send .in{max-width:760px;margin:0 auto;display:flex;gap:8px;align-items:center}
+.send .info{flex:1;font-size:15px;color:var(--muted)}
+.send .info b{color:var(--ink);font-size:18px;display:block}
+.wa{display:inline-flex;align-items:center;gap:8px;font:700 18px Figtree,sans-serif;background:var(--wa);color:#fff;text-decoration:none;border-radius:14px;padding:14px 18px;border:0;cursor:pointer}
+.wa:hover{background:var(--wad)}
+.wa svg{width:22px;height:22px;fill:#fff}
+.sm{font:inherit;font-weight:700;font-size:15px;border:2px solid var(--ink);background:transparent;color:var(--ink);border-radius:12px;padding:10px 12px;cursor:pointer}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 0}
+@media (max-width:480px){.who{grid-template-columns:1fr}.f input{height:48px;font-size:22px}.send .info{font-size:13px}.wa{padding:13px 14px;font-size:17px}}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="logos"><img src="data:image/png;base64,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" alt="Inter-Resto" class="lg-ir"><img src="data:image/png;base64,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" alt="Fresh &amp; Saucy Foods" class="lg-fs"></div>
+  <h1>Inventaire sauces <span>Fresh &amp; Saucy</span></h1>
+  <p class="sub">Compte le stock, référence par référence, puis envoie-le à Monir sur WhatsApp en 1 clic.</p>
+  <div id="recv" hidden style="background:#E3F5EA;border:2px solid var(--wa);border-radius:16px;padding:14px;margin:0 0 14px;color:#173B25"></div>
+
+  <div class="who">
+    <label>Ton prénom<input id="nom" autocomplete="name" placeholder="ex. Abshar"></label>
+    <label>WhatsApp de Monir<input id="tel" inputmode="tel" autocomplete="off" placeholder="ex. 06 12 34 56 78"></label>
+  </div>
+  <p class="help">Pour chaque sauce, remplis ce que tu vois : <b>palettes, couches, colis et unités en vrac</b>. Le total en unités se calcule tout seul. Laisse vide ce qui est à 0. Tout reste enregistré si tu fermes la page.</p>
+
+  <div id="list"></div>
+
+  <div class="tools">
+    <button class="sm" id="cl" style="border-color:var(--wa);color:var(--wad)">🔗 Copier le lien</button>
+    <button class="sm" id="xl" style="border-color:#1D6F42;color:#1D6F42">📊 Extraction Excel</button>
+    <button class="sm" id="fh">📎 Envoyer en fichier HTML</button>
+    <button class="sm" id="tx">💬 Envoyer en texte détaillé</button>
+    <button class="sm" id="cp">Copier le message</button>
+    <button class="sm" id="rz">Nouvel inventaire (tout vider)</button>
+  </div>
+  <textarea id="msgbox" hidden readonly style="width:100%;min-height:220px;margin-top:10px;font:15px/1.4 ui-monospace,monospace;border:2px solid var(--line);border-radius:12px;padding:10px;background:var(--card);color:var(--ink)" aria-label="Message à copier"></textarea>
+  <details class="cat" id="nt" open style="--fc:#1F8A8A"><summary><span class="dot"></span>📝 Note</summary><div class="cond" style="font-size:16px">Un mot pour Monir : produit abîmé, rupture, erreur de livraison, palette à déplacer…</div><textarea id="note" maxlength="300" placeholder="ex. 2 seaux pitta 10 L percés, carton BIB ketchup abîmé" style="width:calc(100% - 28px);margin:0 14px 14px;min-height:110px;font:inherit;font-size:17px;border:2px solid var(--line);border-radius:12px;padding:10px;background:var(--field);color:var(--ink)" aria-label="Note pour Monir"></textarea></details>
+</div>
+
+<div class="send"><div class="in">
+  <div class="info" id="info"></div>
+  <a class="wa" id="wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3z"/></svg>Envoyer le lien</a>
+</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+const IT=[{"r":"HAN10L","sf":"","n":"Hannibal","f":"Seau 10 L"},{"r":"ALG10L","sf":"","n":"Algérienne","f":"Seau 10 L"},{"r":"AUTHUSA10L","sf":"","n":"Américaine","f":"Seau 10 L"},{"r":"AND10L","sf":"","n":"Andalouse","f":"Seau 10 L"},{"r":"SAM10L","sf":"","n":"Samouraï","f":"Seau 10 L"},{"r":"MAYOCHEF10","sf":"","n":"Mayo Chef","f":"Seau 10 L"},{"r":"INT2","sf":"","n":"Ketchup Inter","f":"Seau 10 L"},{"r":"INT1","sf":"","n":"Mayonnaise traiteur Inter 10 kg","f":"Seau 10 L"},{"r":"AUT ALG3L","sf":"","n":"Algérienne","f":"Bidon 3 L"},{"r":"AUTH32","sf":"","n":"Andalouse","f":"Bidon 3 L"},{"r":"9045","sf":"","n":"Hannibal","f":"Bidon 3 L"},{"r":"AUTH30","sf":"","n":"Ketchup","f":"Bidon 3 L"},{"r":"MAYO3TRAIT","sf":"","n":"Mayonnaise traiteur","f":"Bidon 3 L"},{"r":"PIT3LAUT","sf":"","n":"Pitta","f":"Bidon 3 L"},{"r":"SAM3L","sf":"","n":"Samouraï","f":"Bidon 3 L"},{"r":"9078","sf":"","n":"Barbecue 5 L","f":"Seau 5 L"},{"r":"CURRY5","sf":"","n":"Curry 5 L","f":"Seau 5 L"},{"r":"CROUSTY47","sf":"","n":"Sauce Crousty Original 4,7 kg","f":"Seau 5 L"},{"r":"TASTY1","sf":"","n":"Algérienne","f":"Tube 925 ml"},{"r":"TASTY7","sf":"","n":"Andalouse","f":"Tube 925 ml"},{"r":"TASTY2","sf":"","n":"Barbecue","f":"Tube 925 ml"},{"r":"TASTY5","sf":"","n":"Hannibal","f":"Tube 925 ml"},{"r":"TASTY3","sf":"","n":"Ketchup","f":"Tube 925 ml"},{"r":"TASTY4","sf":"","n":"Mayonnaise traiteur","f":"Tube 925 ml"},{"r":"TASTY6","sf":"","n":"Samouraï","f":"Tube 925 ml"},{"r":"TASTY21","sf":"","n":"Daddy Burger 900 ml","f":"Tube 925 ml"},{"r":"TASTY22","sf":"","n":"Algérienne","f":"Sticks"},{"r":"TASTY25","sf":"","n":"Andalouse","f":"Sticks"},{"r":"TASTY24","sf":"","n":"Barbecue","f":"Sticks"},{"r":"TASTY27","sf":"","n":"Burger","f":"Sticks"},{"r":"TASTY28","sf":"","n":"Mayo Chef","f":"Sticks"},{"r":"TASTY23","sf":"","n":"Samouraï","f":"Sticks"},{"r":"TASTY26","sf":"","n":"Ketchup","f":"Sticks"}];
+for(let i=IT.length-1;i>=0;i--)if(IT[i].r==='CROUSTY'||IT[i].r==='COL42')IT.splice(i,1);
+for(let i=IT.length-1;i>=0;i--)if(['MAYOCHEF10','PIT3LAUT'].includes(IT[i].r))IT.splice(i,1);
+const CAT=[
+ ['Seau 10 L','Seaux 10 L','seaux',{u:1,c:13,p:65},'#E8A317'],
+ ['Bidon 3 L','Bidons 3 L (carton de 3)','bidons',{u:3,c:12,p:72},'#EE7A22'],
+ ['Seau 5 L','Seaux 5 L','seaux',{u:1,c:18,p:108},'#3E8E4E'],
+ ['Tube 925 ml','Tubes 925 ml (carton de 12)','tubes',{u:12,c:13,p:65},'#D8432E'],
+ ['Sticks','Sticks 500 × 10 ml','cartons',{u:1,c:14,p:112},'#7B5CC4']
+];
+const $=id=>document.getElementById(id);
+const LS='fresh-inventaire-v1';
+let st={};try{st=JSON.parse(localStorage.getItem(LS)||'{}')}catch(e){}
+st.v=st.v||{};st.open=st.open||{};
+const save=()=>{try{localStorage.setItem(LS,JSON.stringify(st))}catch(e){}};
+if(!st.tel)st.tel='06 86 99 93 77';
+$('nom').value=st.nom||'';$('note').value=st.note||'';
+$('note').addEventListener('input',e=>{st.note=e.target.value;save();refresh()});
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+$('tel').value=st.tel||'';
+const num=v=>{if(v==null||String(v).trim()==='')return 0;const n=+String(v).replace(',','.');return isNaN(n)?0:n};
+const has=r=>{const x=st.v[r]||{};return ['p','k','c','u'].some(f=>x[f]!=null&&String(x[f]).trim()!=='')};
+function total(it,k){const x=st.v[it.r]||{};return num(x.p)*(k.p||0)*k.u+num(x.k)*(k.c||0)*k.u+num(x.c)*k.u+num(x.u)}
+function build(){
+  let h='';
+  CAT.forEach(([f,t,w,k,col])=>{const its=IT.filter(i=>i.f===f);if(!its.length)return;
+    h+=`<details class="cat" data-f="${f}" style="--fc:${col}"${st.open[f]?' open':''}><summary><span class="dot"></span>${t}<span class="prog" data-p="${f}"></span></summary>
+    <div class="cond">1 colis = ${k.u} ${w}${k.c?` · 1 couche = ${k.c} colis`:''}${k.p?` · 1 palette = ${k.p} colis`:''}</div>`;
+    its.forEach(it=>{const x=st.v[it.r]||{};const inp=(fl,lab,dis)=>`<label>${lab}<input inputmode="decimal" autocomplete="off" data-r="${it.r}" data-k="${fl}" value="${x[fl]??''}"${dis?' disabled':''} aria-label="${lab} ${it.n} ${t}"></label>`;
+      h+=`<div class="it" data-it="${it.r}"><div class="hd"><div><b>${it.n}</b> <small>${it.sf||it.r}</small></div><span class="tot" data-t="${it.r}"></span></div>
+      <div class="f">${inp('p','Palettes',!k.p)}${inp('k','Couches',!k.c)}${inp('c','Colis')}${inp('u','Unités')}</div></div>`});
+    h+='</details>'});
+  $('list').innerHTML=h;
+}
+function refresh(){
+  let done=0;
+  CAT.forEach(([f,t,w,k])=>{const its=IT.filter(i=>i.f===f);const d=its.filter(i=>has(i.r)).length;done+=d;
+    const pg=document.querySelector(`[data-p="${CSS.escape(f)}"]`);if(pg){pg.textContent=`${d} / ${its.length}`;pg.classList.toggle('full',d===its.length)}
+    its.forEach(it=>{const el=document.querySelector(`[data-t="${CSS.escape(it.r)}"]`),row=document.querySelector(`[data-it="${CSS.escape(it.r)}"]`);
+      if(has(it.r)){el.textContent=`= ${total(it,k).toLocaleString('fr-FR')} ${w}`;el.classList.remove('z');row.classList.add('done')}else{el.textContent='pas compté';el.classList.add('z');row.classList.remove('done')}})});
+  $('info').innerHTML=`<b>${done} / ${IT.length} sauces comptées</b>${done<IT.length?'Les sauces vides partent comme « pas compté ».':'Inventaire complet ✔'}`;
+  const msg=message();const tel=String(st.tel||'').replace(/\D/g,'').replace(/^0(\d{9})$/,'33$1');
+  $('wa').href=`https://wa.me/${tel}?text=${encodeURIComponent(linkMsg())}`;const fb=$('fbt');if(fb)fb.value=linkMsg();
+}
+function message(){
+  const d=new Date();let m=`📦 *INVENTAIRE SAUCES COLONA*\n${d.toLocaleDateString('fr-FR')} à ${d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}${st.nom?` · par ${st.nom}`:''}\n`;
+  const miss=[];
+  CAT.forEach(([f,t,w,k])=>{const its=IT.filter(i=>i.f===f);const ok=its.filter(i=>has(i.r));its.filter(i=>!has(i.r)).forEach(i=>miss.push(`${i.n} (${t})`));if(!ok.length)return;
+    m+=`\n*${t}*\n`;
+    ok.forEach(it=>{const x=st.v[it.r]||{};const parts=[];if(num(x.p))parts.push(`${num(x.p)} pal`);if(num(x.k))parts.push(`${num(x.k)} couche${num(x.k)>1?'s':''}`);if(num(x.c))parts.push(`${num(x.c)} colis`);if(num(x.u))parts.push(`${num(x.u)} u`);
+      m+=`• ${it.r} ${it.n} : *${total(it,k).toLocaleString('fr-FR')} ${w}*${parts.length>1||(parts.length&&!num(x.u))?` (${parts.join(' + ')})`:''}\n`})});
+  if(miss.length)m+=`\n⚠ Pas compté : ${miss.join(', ')}\n`;
+  if((st.note||'').trim())m+=`\n📝 *Note :* ${st.note.trim()}\n`;
+  return m;
+}
+$('list').addEventListener('input',e=>{const i=e.target;if(!i.dataset.r)return;(st.v[i.dataset.r]=st.v[i.dataset.r]||{})[i.dataset.k]=i.value;save();refresh()});
+$('list').addEventListener('toggle',e=>{const d=e.target;if(d.dataset&&d.dataset.f){st.open[d.dataset.f]=d.open;save()}},true);
+$('nom').addEventListener('input',e=>{st.nom=e.target.value;save();refresh()});
+$('tel').addEventListener('input',e=>{st.tel=e.target.value;save();refresh()});
+$('cp').onclick=async()=>{const b=$('cp');const msg=message();let ok=false;try{await navigator.clipboard.writeText(msg);ok=true}catch(e){}if(!ok){const ta=$('msgbox');ta.hidden=false;ta.value=msg;ta.focus();ta.select();try{ok=document.execCommand('copy')}catch(e){}}b.textContent=ok?'Copié ✔ → colle-le dans WhatsApp':'Sélectionne le texte et copie-le';setTimeout(()=>b.textContent='Copier le message',2500)};
+const sendFile=async()=>{
+  const name=`inventaire_colona_${new Date().toISOString().slice(0,10)}.html`;const file=new File([report()],name,{type:'text/html'});
+  try{if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'Inventaire sauces Fresh & Saucy'});return}}catch(err){if(err&&err.name==='AbortError')return}
+  try{const dl=await (window.claude?.use?.('downloads')||Promise.resolve(null)).catch(()=>null);if(dl){await dl.save({filename:name,data:file})}else{const u=URL.createObjectURL(file),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove()}}catch(_){}
+  $('info').innerHTML='<b>Fichier HTML téléchargé</b>Ouvre WhatsApp → trombone → Document → choisis le fichier.';
+};
+function waSend(txt){
+  const tel=String(st.tel||'').replace(/\D/g,'').replace(/^0(\d{9})$/,'33$1');const t=encodeURIComponent(txt);
+  const q=`${tel?`phone=${tel}&`:''}text=${t}`;const app=`whatsapp://send?${q}`,web=`https://api.whatsapp.com/send?${q}`;
+  let left=false;const h=()=>{if(document.hidden)left=true};document.addEventListener('visibilitychange',h);
+  try{window.location.href=app}catch(_){}
+  setTimeout(()=>{document.removeEventListener('visibilitychange',h);if(left)return;let w=null;try{w=window.open(web,'_blank')}catch(_){}if(!w){try{window.top.location.href=web}catch(_){window.location.href=web}}},1200);
+}
+const PREV='https://claude.ai/artifact/61Ar6gSo1b7knB9HenqpsE',INV=(/^https?:$/.test(location.protocol)&&!/claude|anthropic/.test(location.hostname))?location.href.split('#')[0]:'https://inter-resto.github.io/inventaire-fresh-saucy/';
+const ri=v=>Math.max(0,Math.round(num(v)));
+function invHash(){const d=new Date(),p=n=>String(n).padStart(2,'0');const nom=(st.nom||'x').normalize('NFD').replace(/[^A-Za-z0-9]/g,'').slice(0,20)||'x';
+  let h=`inv2-${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}-${nom}`;
+  CAT.forEach(([f,t,w,k])=>IT.filter(i=>i.f===f&&has(i.r)).forEach(it=>{const x=st.v[it.r]||{};h+=`-${it.r}-${ri(x.p)}-${ri(x.k)}-${ri(x.c)}-${ri(x.u)}`}));
+  const nt=(st.note||'').trim().slice(0,300);if(nt)h+='-note-'+[...new TextEncoder().encode(nt)].map(b=>b.toString(16).padStart(2,'0')).join('');return h}
+function linkMsg(){const n=IT.filter(i=>has(i.r)).length;const d=new Date();return `📦 Inventaire sauces Fresh & Saucy du ${d.toLocaleDateString('fr-FR')} à ${d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}${st.nom?' par '+st.nom:''} : ${n}/${IT.length} sauces comptées.${(st.note||'').trim()?'\n📝 '+st.note.trim():''}\n👉 ${INV}#${invHash()}`}
+$('wa').addEventListener('click',async e=>{refresh();const mob=/iPhone|iPad|iPod|Android/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  if(mob&&navigator.share){e.preventDefault();try{await navigator.share({text:linkMsg()});return}catch(err){if(err&&err.name==='AbortError')return}}
+  const ios=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);if(ios){e.preventDefault();const u=$('wa').href;try{window.top.location.href=u}catch(_){window.location.href=u}}});
+$('cl').addEventListener('click',async()=>{const b=$('cl'),lab='🔗 Copier le lien',t=linkMsg();let ok=false;try{await navigator.clipboard.writeText(t);ok=true}catch(_){}
+  if(!ok){const ta=$('msgbox');ta.hidden=false;ta.value=t;ta.focus();ta.select();try{ok=document.execCommand('copy')}catch(_){}}
+  b.textContent=ok?'✔ Copié → colle-le dans WhatsApp':'Sélectionne le texte ci-dessous et copie-le';setTimeout(()=>b.textContent=lab,3000)});
+$('fh').addEventListener('click',e=>{e.preventDefault();sendFile()});
+$('tx').addEventListener('click',e=>{e.preventDefault();waSend(message())});
+$('rz').onclick=()=>{if(confirm('Effacer tout l’inventaire pour en commencer un nouveau ?')){st.v={};st.note='';$('note').value='';save();build();refresh()}};
+function report(){
+  const d=new Date(),items=[];let rows='';
+  CAT.forEach(([f,t,w,k])=>{const its=IT.filter(i=>i.f===f);rows+=`<tr class="g"><td colspan="4">${t}</td></tr>`;
+    its.forEach(it=>{const x=st.v[it.r]||{};const ok=has(it.r);const tot=ok?total(it,k):null;
+      items.push({r:it.r,sf:it.sf,n:it.n,f,unit:w,total:tot,p:num(x.p),k:num(x.k),c:num(x.c),u:num(x.u)});
+      const parts=[];if(num(x.p))parts.push(num(x.p)+' pal');if(num(x.k))parts.push(num(x.k)+' couche(s)');if(num(x.c))parts.push(num(x.c)+' colis');if(num(x.u))parts.push(num(x.u)+' u');
+      rows+=`<tr${ok?'':' class="m"'}><td>${it.r}<br><small>${it.sf}</small></td><td>${it.n}</td><td class="n"><b>${ok?tot.toLocaleString('fr-FR')+' '+w:'pas compté'}</b></td><td>${parts.join(' + ')}</td></tr>`})});
+  const data={type:'inventaire-colona',v:1,date:d.toISOString(),nom:st.nom||'',items};
+  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Inventaire sauces Fresh & Saucy ${d.toLocaleDateString('fr-FR')}</title><style>body{font:16px/1.4 system-ui,sans-serif;margin:0;padding:16px;color:#1F1A16;background:#fff}h1{font-size:24px;margin:0}p{color:#6E655D;margin:4px 0 12px}table{width:100%;border-collapse:collapse}td{padding:7px 8px;border-bottom:1px solid #E4DDD3;vertical-align:top}td.n{text-align:right;white-space:nowrap}tr.g td{background:#F4F1EC;font-weight:700;font-size:17px}tr.m td{color:#B0A69C}small{color:#6E655D}</style></head><body><h1>📦 Inventaire sauces Fresh & Saucy</h1><p>${d.toLocaleDateString('fr-FR')} à ${d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}${st.nom?' · par '+st.nom:''}</p>${(st.note||'').trim()?`<p style="color:#1F1A16;background:#FFF7DA;padding:8px 10px;border-radius:8px">📝 <b>Note :</b> ${esc(st.note.trim())}</p>`:''}<table>${rows}</table><script type="application/json" id="inv-data">${JSON.stringify(data).replace(/</g,'\\u003c')}<\/script></body></html>`;
+}
+const oldFileShare=async()=>{const b=$('fh');const lab='📎 Envoyer en fichier (HTML)';const name=`inventaire_colona_${new Date().toISOString().slice(0,10)}.html`;
+  const file=new File([report()],name,{type:'text/html'});
+  try{if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'Inventaire sauces Fresh & Saucy',text:message()});b.textContent='Envoyé ✔'}
+    else{const dl=await window.claude?.use?.('downloads').catch(()=>null);if(dl){await dl.save({filename:name,data:file})}else{const u=URL.createObjectURL(file),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove()}b.textContent='Fichier téléchargé → envoie-le sur WhatsApp'}}
+  catch(e){if(e&&e.name==='AbortError'){b.textContent=lab;return}b.textContent='Impossible, utilise Copier'}setTimeout(()=>b.textContent=lab,3000)};
+function loadFromHash(){const h=decodeURIComponent(location.hash.slice(1));if(!h.startsWith('inv2-'))return false;
+  let t=h.split('-');let NOTE='';const ni=t.indexOf('note');if(ni>3){try{NOTE=new TextDecoder().decode(new Uint8Array(((t[ni+1]||'').match(/../g)||[]).map(x=>parseInt(x,16))))}catch(_){}t=t.slice(0,ni)}const dt=t[1]||'',tm=t[2]||'',nom=t[3]||'x';const v={};
+  for(let i=4;i+4<t.length;i+=5){const r=t[i];if(!IT.some(x=>x.r===r))continue;const o={};['p','k','c','u'].forEach((f,j)=>{const n=+t[i+1+j];if(n)o[f]=String(n)});if(!Object.keys(o).length)o.u='0';v[r]=o}
+  st.v=v;save();build();refresh();
+  const by=nom!=='x'?nom:'le magasinier';let ph=`inv-${dt}-${tm}-${nom}`;CAT.forEach(([f,tt,w,k])=>IT.filter(i=>i.f===f&&v[i.r]).forEach(it=>{ph+=`-${it.r}-${Math.round(total(it,k))}`}));
+  const b=$('recv');b.hidden=false;b.innerHTML=`<b style="font-size:19px">📲 Inventaire reçu de ${by}</b><br>Du ${dt.slice(6,8)}/${dt.slice(4,6)}/${dt.slice(0,4)} à ${tm.slice(0,2)}h${tm.slice(2)} · ${Object.keys(v).length} sauces comptées. Les cases ci-dessous sont remplies avec ses chiffres.${NOTE?`<div style="margin-top:8px;background:#fff;border-radius:10px;padding:8px 10px;color:#1F1A16">📝 <b>Note :</b> ${esc(NOTE)}</div>`:''}`;
+  return true}
+
+$('xl').addEventListener('click',async()=>{const b=$('xl'),lab='📊 Extraction Excel';
+  try{if(!window.XLSX)throw new Error('lib');const d=new Date();
+    const aoa=[['INVENTAIRE SAUCES COLONA'],['Date',d.toLocaleDateString('fr-FR')+' '+d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})],['Fait par',st.nom||''],['Note',(st.note||'').trim()],[],['Catégorie','Réf.','Code','Sauce','Palettes','Couches','Colis','Unités','Total','Unité']];
+    let n=0;CAT.forEach(([f,tt,w,k])=>IT.filter(i=>i.f===f).forEach(it=>{const x=st.v[it.r]||{};const ok=has(it.r);if(ok)n++;
+      aoa.push([tt,it.r,it.sf||'',it.n,num(x.p)||null,num(x.k)||null,num(x.c)||null,num(x.u)||null,ok?total(it,k):'pas compté',w])}));
+    aoa.push([],['','','','Sauces comptées',n+' / '+IT.length]);
+    const ws=XLSX.utils.aoa_to_sheet(aoa);ws['!cols']=[{wch:20},{wch:10},{wch:11},{wch:20},{wch:9},{wch:9},{wch:8},{wch:8},{wch:11},{wch:9}];
+    const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Inventaire');
+    const name=`inventaire_colona_${d.toISOString().slice(0,10)}.xlsx`;const blob=new Blob([XLSX.write(wb,{bookType:'xlsx',type:'array'})],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+    const dl=await (window.claude?.use?.('downloads')||Promise.resolve(null)).catch(()=>null);
+    if(dl){await dl.save({filename:name,data:blob})}else{const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000)}
+    b.textContent='✔ Excel téléchargé'}catch(e){b.textContent='Impossible, réessaie'}
+  setTimeout(()=>b.textContent=lab,2500)});
+build();refresh();loadFromHash();window.addEventListener('hashchange',loadFromHash);
+</script>
+</body>
+</html>
